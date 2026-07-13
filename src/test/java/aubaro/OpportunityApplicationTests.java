@@ -1,4 +1,4 @@
-package aubaro.opportunity;
+package aubaro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
