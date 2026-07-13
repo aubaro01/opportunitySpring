@@ -24,7 +24,7 @@ public class OpportunityService implements OpportunityOperations {
     @Override
     public PageModel<OpportunityModel> getAllOpportunities() {
         log.debug("OpportunityService.getAllOpportunities");
-        return null;
+        return opportunityPersistence.getAllOpportunities();
     }
 
     @Override
