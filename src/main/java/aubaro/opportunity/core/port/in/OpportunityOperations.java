@@ -7,7 +7,6 @@ public interface OpportunityOperations {
 
     PageModel<OpportunityModel> getAllOpportunities();
     OpportunityModel getOpportunityById(Long id);
-
     OpportunityModel saveOpportunity(OpportunityModel opportunity);
 
 
