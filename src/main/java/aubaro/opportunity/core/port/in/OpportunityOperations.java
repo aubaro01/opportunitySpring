@@ -9,5 +9,8 @@ public interface OpportunityOperations {
     OpportunityModel getOpportunityById(Long id);
     OpportunityModel saveOpportunity(OpportunityModel opportunity);
 
+    boolean deleteOpportunity(Long id);
+
+
 
 }

@@ -9,6 +9,10 @@ public interface OpportunityPersistence {
     OpportunityModel getOpportunityById(Long id);
     OpportunityModel saveOpportunity(OpportunityModel opportunity);
 
+    boolean deleteOpportunity(Long id);
+
+    boolean deleteOpportunityComments(Long id);
+    boolean deleteOpportunityMovements(Long id);
 
 
 }
