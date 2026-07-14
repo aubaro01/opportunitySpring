@@ -5,6 +5,7 @@ import lombok.*;
 import java.util.Collection;
 @Getter
 @Builder
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class PageModel<T> {

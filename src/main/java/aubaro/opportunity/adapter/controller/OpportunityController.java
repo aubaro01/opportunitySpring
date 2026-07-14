@@ -1,6 +1,7 @@
 package aubaro.opportunity.adapter.controller;
 
 
+import aubaro.opportunity.Shared.core.models.PageModel;
 import aubaro.opportunity.adapter.dto.request.createOpportunity;
 import aubaro.opportunity.adapter.dto.response.OpportunityResponse;
 import aubaro.opportunity.adapter.mapper.OpportunityMapper;
@@ -28,15 +29,18 @@ public class OpportunityController {
 
     @GetMapping()
     @Description("Get all opportunities")
-    public OpportunityResponse getAllOpportunities(@RequestParam(defaultValue = "0") int pageNo,
-                                                   @RequestParam(defaultValue = "20") int pageSize,
-                                                   @RequestParam(defaultValue = "startDate::asc") String sortBy,
-                                                   @RequestParam(defaultValue = "") String filterBy) {
+    public List<OpportunityResponse> getAllOpportunities(@RequestParam(defaultValue = "0") int pageNo,
+                                                         @RequestParam(defaultValue = "10") int pageSize,
+                                                         @RequestParam(defaultValue = "startDate::asc") String sortBy,
+                                                         @RequestParam(defaultValue = "") String filterBy) {
 
+        log.debug("OpportunityController.getAllOpportunities :: Getting all opportunities with the parameters: pageNo: {}, pageSize: {}, sortBy: {}, filterBy: {}", pageNo, pageSize, sortBy, filterBy);
 
+        PageModel<OpportunityModel> opportunities = opportunityOperations.getAllOpportunities(pageNo, pageSize, sortBy, filterBy);
 
-        log.debug("OpportunityController.getAllOpportunities");
-        return null;
+        log.debug("OpportunityController.getAllOpportunities :: Opportunities found: {}", opportunities);
+
+        return opportunityMapper.modelToResponse(opportunities);
     }
 
     @GetMapping("/id")

@@ -2,9 +2,6 @@ package aubaro.opportunity.adapter.dto.response;
 
 import aubaro.opportunity.Shared.core.models.StateModel;
 import aubaro.opportunity.Shared.core.models.TypeModel;
-import aubaro.opportunity.core.model.OpportunityClosedDetailModel;
-import aubaro.opportunity.core.model.OpportunityCommentModel;
-import aubaro.opportunity.core.model.OpportunityMovementModel;
 import aubaro.opportunity.core.model.rel.OpportunityBrandModel;
 import aubaro.opportunity.core.model.rel.OpportunityEquipmentModel;
 import aubaro.opportunity.core.model.rel.OpportunitySegmentModel;
@@ -13,7 +10,6 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Builder
 @Getter
