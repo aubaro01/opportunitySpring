@@ -19,8 +19,11 @@ public class OpportunityService implements OpportunityOperations {
 
     private final OpportunityPersistence opportunityPersistence;
 
-    private final static Long MAX_LENGTH = 200L;
-    private final static Long MIN_LENGTH = 10L;
+    private final static Long SUBMITTED_STATE = 179L;
+    private final static Long EXTEND_STATE = 186L;
+    private final static Long MAX_LENGTH = 255L;
+    private final static Long MIN_LENGTH = 5L;
+    private final static Long MAX_NAME_LENGTH = 200L;
 
     @Override
     public PageModel<OpportunityModel> getAllOpportunities(int pageNo, int pageSize, String sortBy, String FilterBy) {
@@ -80,6 +83,7 @@ public class OpportunityService implements OpportunityOperations {
 
     }
 
+    // This validate max and min length and other stuff
     private boolean validateCreatingOpportunity(OpportunityModel opportunity) {
 
         log.debug("OpportunityService.validateCreatingOpportunity :: validating opportunity: {}", opportunity);

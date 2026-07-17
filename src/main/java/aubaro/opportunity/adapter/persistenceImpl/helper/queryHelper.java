@@ -13,6 +13,7 @@ public class queryHelper {
 
     private queryHelper(){}
 
+    // Filter and sort translate for the query
 
     public void appendFilters(String filterBy, StringBuilder whereClause, MapSqlParameterSource params) {
 
