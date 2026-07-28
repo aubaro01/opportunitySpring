@@ -40,9 +40,7 @@ public class OpportunityController {
 
         log.debug("OpportunityController.getAllOpportunities :: Opportunities found: {}", opportunities);
 
-        //return opportunityMapper.modelToResponse(opportunities);
-
-        return null;
+        return opportunityMapper.modelToResponse(opportunities);
     }
 
     @GetMapping("/id")

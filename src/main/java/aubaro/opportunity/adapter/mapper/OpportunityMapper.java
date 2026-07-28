@@ -7,22 +7,24 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
 
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 
 public interface OpportunityMapper {
 
-    OpportunityResponse modelToResponse(OpportunityModel opportunity);
+        OpportunityResponse modelToResponse(OpportunityModel opportunity);
 
-    /*default List<OpportunityResponse> modelToResponse(List<OpportunityModel> opportunities) {
-        return opportunities.stream()
-                .map(this::modelToResponse)
-                .toList();
-    }
+        default List<OpportunityResponse> modelToResponse(List<OpportunityModel> opportunities) {
+            return opportunities.stream()
+                    .map(this::modelToResponse)
+                    .toList();
+        }
 
     default List<OpportunityResponse> modelToResponse(PageModel<OpportunityModel> page) {
-        return modelToResponse((PageModel<OpportunityModel>) page.getPage()); // ajusta getContent() ao método real da tua PageModel
-    }*/
+        return modelToResponse((List<OpportunityModel>) page.getPage());
+    }
+
 
 }

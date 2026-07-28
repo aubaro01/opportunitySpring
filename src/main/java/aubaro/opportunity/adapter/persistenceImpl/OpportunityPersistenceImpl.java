@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
 @Slf4j
 @Component
 @RequiredArgsConstructor
+@Repository
 
 public class OpportunityPersistenceImpl implements OpportunityPersistence {
 
@@ -30,7 +32,7 @@ public class OpportunityPersistenceImpl implements OpportunityPersistence {
 
         log.debug("OpportunityPersistenceImpl.getAllOpportunities :: getting all opportunities with the parameters: pageNo: {}, pageSize: {}, sortBy: {}, filterBy: {}", pageNo, pageSize, sortBy, filterBy);
 
-      /*  PageRequest pageRequest = PageRequest.of(pageNo > 0 ? pageNo - 1 : pageNo, pageSize);
+        PageRequest pageRequest = PageRequest.of(pageNo > 0 ? pageNo - 1 : pageNo, pageSize);
 
         StringBuilder whereClause = new StringBuilder(" WHERE so.FK_StateId = 179 AND so.FK_ClientId = :clientId");
         MapSqlParameterSource params = new MapSqlParameterSource();
@@ -41,20 +43,23 @@ public class OpportunityPersistenceImpl implements OpportunityPersistence {
             helper.appendFilters(filterBy, whereClause, params);
             String orderByClause = helper.buildOrderByClause(sortBy);
 
-            String countSql = "SELECT COUNT(*) FROM opportunity so" + whereClause;
+            String countSql = "SELECT COUNT(*) FROM opportunity";
 
 
-            String mainSql = "SELECT so.* FROM opportunity so"
-                    + whereClause
-                    + orderByClause
-                    + " LIMIT :limit OFFSET :offset";
+            String mainSql = "SELECT * FROM opportunity";
+
 
             params.addValue("limit", pageRequest.getPageSize());
             params.addValue("offset", pageRequest.getOffset());
 
             Long total = jdbcTemplate.queryForObject(countSql, params, Long.class);
 
-            List<OpportunityModel> content = jdbcTemplate.query(mainSql, params, opportunityRowMapper);
+            List<OpportunityModel> content = jdbcTemplate.query(mainSql, params, (rs, rowNum) -> {
+
+                return OpportunityModel.builder()
+                        //.id()
+                        .build();
+            } );
 
             PageModel<OpportunityModel> pageModel = new PageModel<>();
             pageModel.setPage(content);
@@ -67,12 +72,11 @@ public class OpportunityPersistenceImpl implements OpportunityPersistence {
         } catch (IllegalArgumentException e) {
             log.warn("OpportunityPersistenceImpl.getAllOpportunities :: parâmetros inválidos: {}", e.getMessage());
             throw e;
+
         } catch (Exception e) {
             log.error("OpportunityPersistenceImpl.getAllOpportunities :: error getting all opportunities", e);
             throw new RuntimeException(e);
-        }*/
-
-        return null;
+        }
     }
 
     @Override
@@ -115,7 +119,7 @@ public class OpportunityPersistenceImpl implements OpportunityPersistence {
         log.debug("OpportunityPersistenceImpl.deleteComments :: deleting comments for opportunity id: {}", id);
 
         String query = """
-                DELETE FROM opportunity_comment
+                DELETE FROM opportunity_notes
                 WHERE opportunityId = :id
                 """;
 
