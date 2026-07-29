@@ -5,10 +5,12 @@ import aubaro.opportunity.core.model.OpportunityModel;
 
 public interface OpportunityOperations {
 
-    PageModel<OpportunityModel> getAllOpportunities();
+    PageModel<OpportunityModel> getAllOpportunities(int pageNo, int pageSize, String sortBy, String FilterBy);
     OpportunityModel getOpportunityById(Long id);
-
     OpportunityModel saveOpportunity(OpportunityModel opportunity);
+
+    boolean deleteOpportunity(Long id);
+
 
 
 }

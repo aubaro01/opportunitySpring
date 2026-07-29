@@ -1,25 +1,23 @@
 package aubaro.opportunity.core.model;
 
-import aubaro.opportunity.Shared.core.models.EntityModel;
 import aubaro.opportunity.Shared.core.models.StateModel;
 import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Getter
 @Setter
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class OpportunityMovementModel {
+public class OpportunityProbabilityModel {
 
     private Long id;
     private String comment;
+    private Long probability;
     private LocalDateTime createDate;
 
-    private OpportunityModel opportunity;
     private StateModel stateId;
-    private EntityModel entityId;
-
+    private Long clientId;
 }
