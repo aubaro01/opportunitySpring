@@ -1,7 +1,7 @@
 package aubaro.auth.adapter.dto.response;
 
 import aubaro.auth.core.model.rel.tokenModel;
-import aubaro.opportunity.Shared.adapter.response.UserResponse;
+import aubaro.Shared.adapter.response.UserResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 

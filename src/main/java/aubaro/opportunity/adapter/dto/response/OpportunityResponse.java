@@ -1,7 +1,7 @@
 package aubaro.opportunity.adapter.dto.response;
 
-import aubaro.opportunity.Shared.core.models.StateModel;
-import aubaro.opportunity.Shared.core.models.TypeModel;
+import aubaro.Shared.core.models.StateModel;
+import aubaro.Shared.core.models.TypeModel;
 import aubaro.opportunity.core.model.rel.OpportunityBrandModel;
 import aubaro.opportunity.core.model.rel.OpportunityEquipmentModel;
 import aubaro.opportunity.core.model.rel.OpportunitySegmentModel;

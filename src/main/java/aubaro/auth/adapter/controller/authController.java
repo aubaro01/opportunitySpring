@@ -3,7 +3,7 @@ package aubaro.auth.adapter.controller;
 import aubaro.auth.adapter.dto.request.createLogin;
 import aubaro.auth.adapter.dto.request.loginRequest;
 import aubaro.auth.adapter.dto.response.loginResponse;
-import aubaro.opportunity.Shared.core.models.UserModel;
+import aubaro.Shared.core.models.UserModel;
 import jdk.jfr.Description;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
