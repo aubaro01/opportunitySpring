@@ -1,6 +1,6 @@
 package aubaro.opportunity.core.port.out;
 
-import aubaro.opportunity.Shared.core.models.PageModel;
+import aubaro.Shared.core.models.PageModel;
 import aubaro.opportunity.core.model.OpportunityModel;
 
 public interface OpportunityPersistence {

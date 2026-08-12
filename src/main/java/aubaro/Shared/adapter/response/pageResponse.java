@@ -1,4 +1,4 @@
-package aubaro.opportunity.Shared.adapter.response;
+package aubaro.Shared.adapter.response;
 
 import lombok.*;
 

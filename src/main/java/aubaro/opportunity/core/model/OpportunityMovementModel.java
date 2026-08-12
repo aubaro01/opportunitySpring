@@ -1,7 +1,7 @@
 package aubaro.opportunity.core.model;
 
-import aubaro.opportunity.Shared.core.models.EntityModel;
-import aubaro.opportunity.Shared.core.models.StateModel;
+import aubaro.Shared.core.models.EntityModel;
+import aubaro.Shared.core.models.StateModel;
 import lombok.*;
 
 import java.time.LocalDateTime;

@@ -1,6 +1,6 @@
 package aubaro.opportunity.adapter.mapper;
 
-import aubaro.opportunity.Shared.core.models.PageModel;
+import aubaro.Shared.core.models.PageModel;
 import aubaro.opportunity.adapter.dto.response.OpportunityResponse;
 import aubaro.opportunity.core.model.OpportunityModel;
 import org.mapstruct.Mapper;
