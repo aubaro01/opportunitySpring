@@ -4,7 +4,6 @@ import lombok.*;
 
 @Getter
 @AllArgsConstructor
-@RequiredArgsConstructor
 
 public class createLogin {
 

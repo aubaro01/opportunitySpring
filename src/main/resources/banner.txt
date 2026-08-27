@@ -1,0 +1,20 @@
+${AnsiColor.BRIGHT_GREEN}
+   ____                      _                   _ _
+  / __ \                    | |                 | (_)
+ | |  | |_ __  _ __   ___   | |_ _ __ ___  __ _| |_ _ __
+ | |  | | '_ \| '_ \ / _ \  | __| '__/ _ \/ _` | | | '_ \
+ | |__| | |_) | |_) | (_) | | |_| | |  __/ (_| | | | | |
+  \____/| .__/| .__/ \___/   \__|_|  \___|\__,_|_|_| |_|
+        | |   | |
+        |_|   |_|
+${AnsiColor.DEFAULT}
+${AnsiStyle.BOLD}${AnsiColor.BRIGHT_WHITE}          O P P O R T U N I T Y${AnsiStyle.NORMAL}${AnsiColor.DEFAULT}
+${AnsiColor.BRIGHT_BLACK}             Spring Boot API${AnsiColor.DEFAULT}
+
+${AnsiColor.BRIGHT_BLACK}------------------------------------------------------------${AnsiColor.DEFAULT}
+${AnsiColor.CYAN}  Spring Boot :${AnsiColor.DEFAULT} ${spring-boot.version}
+${AnsiColor.CYAN}  Java        :${AnsiColor.DEFAULT} ${java.version}
+${AnsiColor.CYAN}  Application :${AnsiColor.DEFAULT} ${spring.application.name}
+${AnsiColor.CYAN}  Version     :${AnsiColor.DEFAULT} ${application.version}
+${AnsiColor.CYAN}  project ambient :${AnsiColor.DEFAULT} ${application.ambient}
+${AnsiColor.BRIGHT_BLACK}------------------------------------------------------------${AnsiColor.DEFAULT}
