@@ -16,4 +16,5 @@ ${AnsiColor.CYAN}  Spring Boot :${AnsiColor.DEFAULT} ${spring-boot.version}
 ${AnsiColor.CYAN}  Java        :${AnsiColor.DEFAULT} ${java.version}
 ${AnsiColor.CYAN}  Application :${AnsiColor.DEFAULT} ${spring.application.name}
 ${AnsiColor.CYAN}  Version     :${AnsiColor.DEFAULT} ${application.version}
+${AnsiColor.CYAN}  project ambient :${AnsiColor.DEFAULT} ${application.ambient}
 ${AnsiColor.BRIGHT_BLACK}------------------------------------------------------------${AnsiColor.DEFAULT}
