@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 public class authController {
 
-    @PostMapping()
+    @PostMapping("/login")
     @Description("Creating access for a user")
     public loginResponse userAuth (@RequestBody loginRequest logRequest){
 
@@ -30,7 +30,7 @@ public class authController {
     @Description("Creating a new user")
     public UserModel createNewUser(@RequestBody createLogin createLog){
 
-        log.debug("authController.createNewUser :: creating a new user with the data: {}");
+        log.debug("authController.createNewUser :: creating a new user with the data: {}", createLog);
 
         UserModel user = UserModel.builder()
                 .name(createLog.getUserName())
