@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 public class loginRequest {
 
     @NonNull
+
     private String userName;
 
     @NonNull

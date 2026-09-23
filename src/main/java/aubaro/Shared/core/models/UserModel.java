@@ -1,7 +1,6 @@
 package aubaro.Shared.core.models;
 
 import lombok.*;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
 
@@ -15,6 +14,8 @@ public class UserModel {
     private Long id;
 
     private String name;
+
+    private String fullName;
 
     private String userLog;
 
