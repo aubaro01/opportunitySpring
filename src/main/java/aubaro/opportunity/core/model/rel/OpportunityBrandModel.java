@@ -1,6 +1,6 @@
 package aubaro.opportunity.core.model.rel;
 
-import aubaro.opportunity.Shared.core.models.StateModel;
+import aubaro.Shared.core.models.StateModel;
 import lombok.*;
 
 @Getter

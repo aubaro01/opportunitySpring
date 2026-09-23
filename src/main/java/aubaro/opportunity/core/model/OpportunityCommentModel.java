@@ -1,6 +1,6 @@
 package aubaro.opportunity.core.model;
 
-import aubaro.opportunity.Shared.core.models.UserModel;
+import aubaro.Shared.core.models.UserModel;
 import lombok.*;
 
 import java.time.LocalDateTime;

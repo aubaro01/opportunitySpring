@@ -1,7 +1,6 @@
 package aubaro.opportunity.core.model.rel;
 
-import aubaro.opportunity.Shared.core.models.StateModel;
-import aubaro.opportunity.core.model.OpportunityModel;
+import aubaro.Shared.core.models.StateModel;
 
 public class OpportunityEquipmentModel {
 

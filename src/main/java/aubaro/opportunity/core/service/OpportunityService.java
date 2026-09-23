@@ -1,6 +1,6 @@
 package aubaro.opportunity.core.service;
 
-import aubaro.opportunity.Shared.core.models.PageModel;
+import aubaro.Shared.core.models.PageModel;
 import aubaro.opportunity.core.message.MsgOpportunityErrors;
 import aubaro.opportunity.core.model.OpportunityModel;
 import aubaro.opportunity.core.port.in.OpportunityOperations;

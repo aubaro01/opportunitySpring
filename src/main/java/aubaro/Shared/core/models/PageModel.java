@@ -1,4 +1,4 @@
-package aubaro.opportunity.Shared.core.models;
+package aubaro.Shared.core.models;
 
 import lombok.*;
 

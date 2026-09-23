@@ -12,4 +12,5 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/opportunities")
 
 public class OpportunityTypesController {
+
 }

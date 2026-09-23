@@ -1,7 +1,7 @@
 package aubaro.opportunity.adapter.controller;
 
 
-import aubaro.opportunity.Shared.core.models.PageModel;
+import aubaro.Shared.core.models.PageModel;
 import aubaro.opportunity.adapter.dto.request.createOpportunity;
 import aubaro.opportunity.adapter.dto.response.OpportunityResponse;
 import aubaro.opportunity.adapter.mapper.OpportunityMapper;
