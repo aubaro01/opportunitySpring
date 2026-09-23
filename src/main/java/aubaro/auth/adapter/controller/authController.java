@@ -85,15 +85,4 @@ public class authController {
 
     }
 
-    @PutMapping("/inactive/{userId}/user")
-    @Description("inactive a user")
-    public UserModel inactiveUser(@PathVariable ("userId") Long userId){
-
-        log.debug("authController.inactiveUser :: Inactive user with the id: {}", userId);
-
-        return null;
-    }
-
-
-
 }
