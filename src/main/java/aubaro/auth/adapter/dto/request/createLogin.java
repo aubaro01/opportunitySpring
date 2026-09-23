@@ -1,5 +1,8 @@
 package aubaro.auth.adapter.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Getter
@@ -7,16 +10,19 @@ import lombok.*;
 
 public class createLogin {
 
-    @NonNull
+    @NotBlank(message = "userName is required")
     private String userName;
 
-    @NonNull
+    private String fullName;
+
+    @NotBlank(message = "user Log is required")
     private String userLog;
 
-    @NonNull
+    @NotBlank(message = "password is required")
+    @Size(min = 4, message = "password must have at least 8 characters")
     private String password;
 
-    @NonNull
+    @NotNull(message = "clientId is required")
     private Long clientId;
 
 }

@@ -1,17 +1,17 @@
 package aubaro.auth.core.model;
 
 import aubaro.auth.core.model.rel.tokenModel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
 
 public class loginModel {
+
+    private Long userId;
 
     private String userLog;
 
