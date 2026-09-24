@@ -65,12 +65,12 @@ public class SecurityConfig {
     }
 
     @Bean
-    public JwtEncoder jwtEncoder(@Value("${app.jwt.secret}") String secret) {
+    public JwtEncoder jwtEncoder(@Value("${jwt.secret}") String secret) {
         return new NimbusJwtEncoder(new ImmutableSecret<>(secretKey(secret)));
     }
 
     @Bean
-    public JwtDecoder jwtDecoder(@Value("${app.jwt.secret}") String secret) {
+    public JwtDecoder jwtDecoder(@Value("${jwt.secret}") String secret) {
         return NimbusJwtDecoder.withSecretKey(secretKey(secret))
                 .macAlgorithm(MacAlgorithm.HS256)
                 .build();
