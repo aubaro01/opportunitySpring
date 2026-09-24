@@ -35,7 +35,8 @@ public class SecurityConfig {
 
     private static final String[] PUBLIC_GET = {
             "/api/v1/opportunities",
-            "/api/v1/opportunities/*"
+            "/api/v1/opportunities/*",
+            "/"
     };
 
     private static final String[] PUBLIC_ANY = {
