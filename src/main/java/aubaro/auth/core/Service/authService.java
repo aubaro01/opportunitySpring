@@ -37,14 +37,14 @@ public class authService implements authOperations {
         }
 
         loginModel user = persistence.getUserByUserName(model.getUserLog())
-                .orElseThrow(() -> new BusinessException(AuthMessage.AUTH_MESSAGE_0001)); // "User not found"
+                .orElseThrow(() -> new BusinessException(AuthMessage.AUTH_MESSAGE_0001));
 
         // match the passwords
         boolean passwordMatches = passwordEncoder.matches(model.getPassword(), user.getPassword());
 
         if (!passwordMatches) {
             log.warn("authService.userLogin :: invalid password for userName={}", model.getUserLog());
-            throw new BusinessException(AuthMessage.AUTH_MESSAGE_0002); // credenciais inválidas
+            throw new BusinessException(AuthMessage.AUTH_MESSAGE_0002);
         }
         // generate tokens for access
         String accessToken = jwtUtil.generateAccessToken(user.getUserId(), user.getClientId());

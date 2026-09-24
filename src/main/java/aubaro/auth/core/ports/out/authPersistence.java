@@ -9,8 +9,6 @@ import java.util.Optional;
 
 public interface authPersistence {
 
-   Optional<loginModel> userLogin(loginModel model);
-
     Optional<loginModel> getUserByUserName (@NonNull String userName);
 
     UserModel createUser(UserModel create) throws BusinessException;

@@ -16,6 +16,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
@@ -30,32 +31,13 @@ public class authPersistenceImpl implements authPersistence {
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private final queryHelper helper;
 
-
     @Override
-    public Optional<loginModel> userLogin(loginModel model) {
-
-        log.debug("authPersistence.getUserLogin :: check if user with the userName: {} exist", model.getUserLog());
-
-        String query = """
-                SELECT ru.PK_UserId AS id, ru.userName, ru.name,
-                rc.PK_ClientId, rc.name
-                from ref_user AS ru
-                left join ref_user_client As ruc
-                on ruc.FK_UserId = ru.PK_UserId
-                left join ref_client As rc
-                on ruc.FK_ClientId = rc.PK_ClientId
-                WHERE ru.userName = :username
-                """;
-
-        return null;
-    }
-
-    @Override
+    @Transactional(readOnly = true)
     public  Optional<loginModel> getUserByUserName(@NonNull String userName) {
 
+        log.debug("authPersistenceImpl.getUserLogin :: check if user with the userName: {} exist", userName);
 
-        log.debug("authPersistence.getUserLogin :: check if user with the userName: {} exist", userName);
-
+        // language=SQL
         String query = """
                 SELECT ru."PK_UserId" AS id, ru."userName", ru.name,  ru."userPassword" AS password,
                 rc."PK_ClientId" AS clientId, rc.name
@@ -79,13 +61,19 @@ public class authPersistenceImpl implements authPersistence {
             return user;
         });
 
+        log.debug("authPersistenceImpl.getUserByUserName :: user find with the name: {}", userName);
+
         // TODO: If a user can have more than 1 client switch to catch the right
         return results.stream().findFirst();
     }
 
+    @Transactional(readOnly = false)
     @Override
     public UserModel createUser(UserModel create) throws BusinessException {
 
+        log.debug("authPersistenceImpl.createUser :: Creating user with the following data: {}", create.getName());
+
+        // language=SQL
         final String query = """
                 INSERT INTO ref_user
                     ("userName", "userPassword", "name", "fullName", "is_Active")
@@ -100,12 +88,14 @@ public class authPersistenceImpl implements authPersistence {
                 .addValue("fullName", create.getFullName())
                 .addValue("isActive", false);
 
-
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(query, parameters, keyHolder, new String[]{"PK_UserId"});
         long userId = Objects.requireNonNull(keyHolder.getKey()).longValue();
 
+        log.debug("authPersistenceImpl.createUser :: UserId:{} generate for the user with the name: {} :: ", userId, create.getName());
+
         if (create.getClientId() != null){
+            log.debug("authPersistenceImpl.createUser :: Associate user with the client with the id: {}", create.getClientId());
             createUserAndClientRelation(userId, create.getClientId());
         }
 
@@ -113,10 +103,12 @@ public class authPersistenceImpl implements authPersistence {
         return create;
     }
 
+    @Transactional(readOnly = false)
     private boolean createUserAndClientRelation(Long userId, Long clientId) {
 
         log.debug("authPersistence.createUserAndClientRelation :: linking userId={} to clientId={}", userId, clientId);
 
+        // language=SQL
         String query = """
             INSERT INTO ref_user_client
                 ("FK_ClientId", "FK_UserId", "FK_CreateUser")
@@ -130,6 +122,7 @@ public class authPersistenceImpl implements authPersistence {
 
         try {
             int rowsAffected = jdbcTemplate.update(query, params);
+            log.debug("authPersistenceImlp.createUserAndClientRelation :: User associated to a client");
             return rowsAffected > 0;
 
         } catch (DataIntegrityViolationException e) {

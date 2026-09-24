@@ -36,7 +36,7 @@ public class OpportunityPersistenceImpl implements OpportunityPersistence {
 
         StringBuilder whereClause = new StringBuilder(" WHERE so.FK_StateId = 179 AND so.FK_ClientId = :clientId");
         MapSqlParameterSource params = new MapSqlParameterSource();
-        //params.addValue("clientId", getCurrentClientId()); // ajusta conforme o teu contexto
+        //params.addValue("clientId", getCurrentClientId());
 
         try {
 
